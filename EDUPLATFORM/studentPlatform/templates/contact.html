@@ -1,0 +1,110 @@
+<head>
+    
+    <style> 
+            #forma1 {
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+
+    #forma2 {
+        display: block;
+        margin: 0 20px 0 0;
+    } 
+        .button {
+  display: inline-block;
+
+
+
+
+
+
+  width: 160px;
+  transition: all 0.5s;
+  cursor: pointer;
+
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    </style>
+</head>
+<body>
+<!-- Middle Column -->
+    <div class="w3-col m9">
+    
+    <div class="w3-row-padding">
+        <div class="w3-col m12">
+            <div class="w3-card w3-round w3-white">
+                <div class="w3-container w3-padding">
+                    <i class="w3-left w3-circle w3-margin-right fa fa-envelope" style="font-size:155% ; margin-top:1%; color:#071c33"></i>
+                    <h4>Στείλτε μας μήνυμα!</h4><br>
+                    <hr class="w3-clear" style="margin-top:-2%">
+                    <p>Έχεις κάποια απορία σχετικά με τη πλατφόρμα; Έχεις κάποια ιδέα για το πως θα μπορούσαμε να γίνουμε καλύτεροι ή κάποιο παράπονο; Στείλε μας email με τα στοιχεία σου, το θέμα σου και θα επικοινωνήσουμε όσο το δυνατόν γρηγορότερα μαζί σου.</p><br>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+            <div class="w3-container w3-padding">
+                <h4>Σύνθεση μηνύματος</h4><br>
+                <hr class="w3-clear" style="margin-top:-2%">
+                <p>Όλα τα πεδία είναι απαραίτητα!</p><br/>
+                <form name="myform">
+                    <div id="forma1" class="form-group">
+                        <label id="forma2" for="kefalaiotitlos">Όνομα <font color="#EB0000" >*</font></label>
+                        <input type="text" style="width: 300px; margin-top:5px;" ng-model="showCrudData.onoma" class="form-control" required />
+                    </div>
+                    <div id="forma1" class="form-group">
+                        <label id="forma2" for="biblio">Επώνυμο <font color="#EB0000" >*</font></label>
+                        <input type="text" style="width: 300px; margin-top:5px;" ng-model="showCrudData.epwnumo" class="form-control" required />
+                    </div><br>
+                    <div id="forma1" class="form-group" style="margin-top: 10px">
+                        <label id="forma2" for="kefalaiotitlos">Email <font color="#EB0000" >*</font></label>
+                        <input type="email" style="width: 300px; margin-top:5px;" ng-model="showCrudData.mail" class="form-control" required />
+                    </div>
+                    <div id="forma1" class="form-group">
+                        <label id="forma2" for="biblio">Θέμα μηνύματος <font color="#EB0000" >*</font></label>
+                        <select style="width: 300px; margin-top: 5px" class="form-control" ng-model="showCrudData.thema" required>
+                            <option selected="selected" disabled>Επιλέξτε...</option>
+                            <option value="apwleia">Προτάσεις/Σχόλια</option>
+                            <option value="endiaferon">Απορία για πλατφόρμα</option>
+                            <option value="question">Παρατηρήσεις</option>
+                            <option value="comments">Άλλο</option>
+                        </select>
+                    </div><br>
+                    <div id="forma1" class="form-group" style="margin-top: 10px">
+                        <label id="forma2" for="kefalaiotitlos">Περιεχόμενο <font color="#EB0000" >*</font></label>
+                        <textarea rows="6" type="text" style="width: 620px; margin-top:5px; resize: none" ng-model="showCrudData.periexomeno" class="form-control" required ></textarea>
+                    </div><br>
+                    <button type="submit" class="button btn btn-primary" style="margin-top: 25px" ng-disabled="myform.$invalid" ng-click="sentMail()"><span>Αποστολή </span></button><br>
+                    <span id="stalthike" style="display: none; margin-top: 25px; color:forestgreen"> &ensp;&gt;&nbsp; Επιτυχής αποστολή μηνύματος! </span><br><br>
+                </form>
+                
+            </div>   
+        </div>
+    <!-- End Middle Column -->
+    </div>
+</body>
