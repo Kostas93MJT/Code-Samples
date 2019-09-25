@@ -9,7 +9,7 @@ This repository contains code samples from various projects
 A project for the Greek Postal Service (ELTA) where the customer can print a priority number online before getting to the physical store. 
 Upon printing the number the customer gets an estimate about how long he is going to wait, his position in the queue, 
 how many customers are in the store, how many employees are available and if there are seats available to sit while waiting. 
-The website is fully operational, all buttons direct the user in functioning interfaces. See [image 1](images/ELTAhome.png) and [image 2](images/ELTAqueue.png) for a sneak peak.
+The website is fully operational, all buttons direct the user in functioning interfaces. See the [image](ELTA/Demonstration.png) for a sneak peak.
 
 ### Files
 
