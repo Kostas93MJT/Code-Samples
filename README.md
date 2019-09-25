@@ -14,11 +14,12 @@ The website is fully operational, all buttons direct the user in functioning int
 ### Files
 
 The key files for the API in terms of the immediate interface the user sees and interacts are the files contained in the ELTA folder.
-First and foremost, the ***index.html*** file contains all the stuff that the user sees and clicks on whereas the ***js/mainCode.js*** file contains the Angular controller and 
-functions used by the app in order to manage and present the data. Finally ***js/serverCommands.php*** requests the data from the database via queries and returns 
-it in JSON format.
+First and foremost, the ***index.html*** file contains all the stuff that the user sees and clicks on whereas the ***js/mainCode.js*** file contains the Angular controller and functions used by the app in order to manage and present the data. Finally ***js/serverCommands.php*** requests the data from the database via queries and returns it in JSON format.
 
-* ## Hellenic Open University API (EDUPLATFORM folder)
+It should be mentioned that these files are samples from the project and by no means are they capable of building the aforementioned platform on their own.
+
+
+* ## Hellenic Open University Platform (EDUPLATFORM folder)
 
 ### Description
 
