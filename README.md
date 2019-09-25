@@ -24,7 +24,7 @@ It should be mentioned that these files are samples from the project and by no m
 ### Description
 
 A Web platform and a recommendation algorithm using web and data mining technologies respectively. 
-The platform was adapted to the operation of the Hellenic Open 'niversity, which is based on distance learning. 
+The platform was adapted to the operation of the Hellenic Open University, which is based on distance learning. 
 Professors can upload educational material (files or chapters from books) and tests on the platform, arrange monthly meetings, post announcements and create polls. 
 Through a user-friendly online interface, students interact with educational material uploaded by professors, evaluate their
 understanding on a scale of 1 to 5 and together with their performance on various tests the tracking algorithm would determine 
