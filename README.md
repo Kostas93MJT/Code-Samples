@@ -31,7 +31,7 @@ understanding on a scale of 1 to 5 and together with their performance on variou
 their knowledge level using machine learning in order to make personalized educational material suggestions to them while informing 
 professors about their students overall performance. Indexing techniques similar to those used in search engines were applied. 
 The whole application was made from scratch implementing both front-end and back-end technologies 
-See [images](images/ELTAhome.png) for a sneak peak.
+See [image 1](https://raw.githubusercontent.com/Kostas93MJT/Code-Samples/master/EDUPLATFORM/eduplatform_PRO.jpg?token=ANAPPWFLJRWLIOY4R7OZ76K5ROY2S) containing pictures from the website's home screen and professor's interface and [image 2](https://raw.githubusercontent.com/Kostas93MJT/Code-Samples/master/EDUPLATFORM/eduplatform_STU.jpg?token=ANAPPWD2MB5CRC47SCEI7S25ROY2I) containing pictures from the student's interface.
 
 In the current repository only the web development aspect of the project is available and not the code for the mining algorithm.
 
