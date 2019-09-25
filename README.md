@@ -46,6 +46,7 @@ The files presented in EDUPLATFORM folder are samples from the project and by no
 * Bootstrap
 * JavaScript
 * JQuery
+* AJAX
 * AngularJS
 * JSON
 * PHP
