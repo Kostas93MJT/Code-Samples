@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>ΕΛΤΑ ｜ Hellenic Post</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.1/css/all.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+      
+    <link rel="stylesheet" href="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.19/angular-material.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <!-- <link rel="stylesheet" href="https://material.angularjs.org/1.1.20/docs.css"> -->
+      
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css">
+      <style>
+
+      </style>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl" id="popupContainer" ng-cloak="" >
+    <header role="banner">
+     
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand absolute" href="index.html"><img src="images/download.jpg" alt="190 χρόνια Ελληνικά Ταχυδρομεία" style="width: 50%;height: 50%"> </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+            <ul class="navbar-nav mx-auto" >
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html"><i class="fa fa-caret-right"> </i> ΑΡΧΙΚΗ</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fa fa-caret-right"> </i> Η ΕΤΑΙΡΕΙΑ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html#ereusiKatastimatwn"><i class="fa fa-caret-right"> </i> ΚΑΤΑΣΤΗΜΑΤΑ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about.html#SuxnesErotiseis" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="about.html#SuxnesErotiseis">Εξόφληση Λογαριασμών</a>
+                        <a class="dropdown-item" href="about.html#SuxnesErotiseis">Επιταγές</a>
+                        <a class="dropdown-item" href="about.html#SuxnesErotiseis">Συντάξεις</a>
+                        <a class="dropdown-item" href="about.html#SuxnesErotiseis">Ταχυδρομικοί κώδικες</a>
+                        <a class="dropdown-item" href="contact.html">Επικοινωνήστε μαζί μας</a>
+                        <a class="dropdown-item" href="contact.html#ereusiKatastimatwn">Εύρεση καταστήματος</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav absolute-right">
+              
+              <li ng-show="!isConnected">
+                <a href="javascript:void(0)" ng-click="showTabDialog($event)">Είσοδος</a> / <a href="javascript:void(0)" ng-click="showTabDialog($event)">Εγγραφή</a>
+              </li>
+              <li ng-show="isConnected">
+                <a class="dropdown-toggle" href="about.html#SuxnesErotiseis" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ο λογαριασμός μου</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown05" style="margin-top: 3%">
+                        <button class="dropdown-item" ng-click="logoutUser()"><i class="fas fa-power-off">&ensp;</i> Αποσύνδεση</button>
+                    </div> 
+              </li>
+            </ul>
+            </div>
+        </div>
+      </nav>
+    </header>
+    <!-- END header -->
+
+    <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(images/img_11.png);">
+      <div class="container">
+        <div class="row align-items-center justify-content-center site-hero-inner">
+          <div class="col-md-10">
+  
+            <div class="mb-5 element-animate">
+              <div class="block-17">
+                <h2 class="heading text-center mb-4" style="text-shadow: 2px 2px 2px black, 2px 2px 2px black; color: white">Λάβετε αριθμό προτεραιότητας στο πλησιέστερο κατάστημα με ένα κλικ!</h2>
+                <form method="post" name="numberForm" class="d-block d-lg-flex mb-4">
+                  <div class="fields d-block d-lg-flex">
+                    <div class="select-wrap one-third">
+                        <div class="icon"><span class="ion-ios-arrow-down"> <span style="color: red"> *</span></span></div>
+                        <select ng-model="getNumber.county" ng-options="item.county for item in counties" class="form-control" required>
+                            <option disabled value="">Νομός..</option>
+                        </select>                      
+                    </div>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"> <span style="color: red"> *</span></span></div>
+                      <select ng-model="getNumber.county" ng-options="item.city for item in counties" class="form-control" required>
+                            <option disabled value="">Πόλη..</option>
+                        </select>
+                    </div>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control" data-toggle="tooltip" data-placement="top" ng-model="getNumber.what" title="Βοηθήστε τον υπάλληλο να σας εξυπηρετήσει γρηγορότερα!">
+                        <option disabled value="" selected="selected">Θέλω να..</option>
+                        <option value="SL">στείλω γράμμα</option>
+                        <option value="GL">παραλάβω γράμμα</option>
+                        <option value="SP">στείλω δέμα</option>
+                        <option value="GP">παραλάβω δέμα</option>
+                        <option value="OT">κάνω άλλη συναλλαγή</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input type="submit" class="search-submit btn btn-primary" ng-click="numberForm.$valid && printNumber()" value="Λήψη">  
+                </form>
+                <p class="text-center mb-5" style="text-shadow: 1px 1px 1px black, 1px 1px 1px black;" ng-show="!isConnected">Για να χρησιμοποιήσετε την υπηρεσία απαραίτητη προϋπόθεση είναι να έχετε δημιουργήσει ένα λογαριασμό χρήστη</p>
+                <p class="text-center mb-5" style="text-shadow: 1px 1px 1px black, 1px 1px 1px black;" ng-show="isConnected">Σημείωση: εάν έχετε ήδη λάβει αριθμό για ένα κατάστημα θα συνεχίζετε να έχετε τη συγκεκριμένη προτεραιότητα έως ότου ο αριθμός εξυπηρετηθεί ή τον πετάξετε</p>
+                <p class="text-center"><a href="javascript:void(0)" class="btn py-3 px-5" ng-click="showTabDialog($event)" ng-show="!isConnected">Εγγραφείτε τώρα!</a></p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section element-animate">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 order-md-2">
+            <div class="block-16">
+              <figure>
+                <img src="images/Hellenic_Post.svg.png" alt="Image placeholder" class="img-fluid">
+                <a href="https://vimeo.com/304461895" class="play-button popup-vimeo"><span class="ion-ios-play"></span></a>
+
+                <!-- <a href="https://vimeo.com/304461895" class="button popup-vimeo" data-aos="fade-right" data-aos-delay="700"><span class="ion-ios-play"></span></a> -->
+
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-6 order-md-1">
+
+            <div class="block-15">
+              <div class="heading">
+                <h2 style="color: #006CA5">Ελληνικά Ταχυδρομεία</h2>
+              </div>
+              <div class="text mb-5">
+              <p>Τα ΕΛΤΑ συμβαδίζουν με τις επιταγές της σύγχρονης εποχής και σας παρουσιάζουν τη νέα λειτουργία ηλεκτρονικής έκδοσης αριθμού προτεραιότητας για το υποκατάστημα της περιοχής σας. Τέλος οι ουρές και η ορθοστασία!{{aaaa}}</p>
+              </div>
+              <p><a href="course-single.html" class="btn btn-primary reverse py-2 px-4" style="background-color: #006CA5">Περισσότερα</a></p>
+              
+            </div>
+
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section pt-3 element-animate">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="media block-6 d-block">
+              <div class="icon mb-3"><span class="fa fa-mouse-pointer"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Με ένα απλό κλικ</h3>
+                <p>Δημιουργήστε το λογαριασμό σας και βγάλτε αριθμό σε 5'</p>
+                <p><a href="course-single.html#pleonektimataYpiresiwn" class="more" style="color: #006CA5">περισσοτερα <span class="ion-arrow-right-c"></span></a></p>
+              </div>
+            </div> 
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="media block-6 d-block">
+              <div class="icon mb-3"><span class="far fa-clock"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Εκτίμηση χρόνου</h3>
+                <p>Λάβετε μια κατά προσέγγιση εκτίμηση χρόνου εξυπηρέτησης</p>
+                <p><a href="course-single.html#pleonektimataYpiresiwn" class="more" style="color: #006CA5">περισσοτερα <span class="ion-arrow-right-c"></span></a></p>
+              </div>
+            </div> 
+          </div>
+          
+          <div class="col-md-6 col-lg-3">
+            <div class="media block-6 d-block">
+              <div class="icon mb-3"><span class="fa fa-chair"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Διαθεσιμότητα θέσεων</h3>
+                <p>Ενημερωθείτε για τη πιθανότητα να βρείτε θέση στο υποκατάστημα</p>
+                <p><a href="course-single.html#pleonektimataYpiresiwn" class="more" style="color: #006CA5">περισσοτερα <span class="ion-arrow-right-c"></span></a></p>
+              </div>
+            </div> 
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="media block-6 d-block">
+              <div class="icon mb-3"><span class="fa fa-users"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Διαθεσιμότητα Υπαλλήλων</h3>
+                <p>Δείτε πόσοι απ τους υπαλλήλους είναι διαθέσιμοι εκείνη τη στιγμή</p>
+                <p><a href="course-single.html#pleonektimataYpiresiwn" class="more" style="color: #006CA5">περισσοτερα <span class="ion-arrow-right-c"></span></a></p>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section bg-light element-animate" id="section-counter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <figure><img src="images/elta.jpg" alt="Image placeholder" class="img-fluid"></figure>
+          </div>
+          <div class="col-lg-5 ml-auto">
+            <div class="block-15">
+              <div class="heading">
+                <h2 style="color: #006CA5">Εμπειρία 190 ετών</h2>
+              </div>
+              <div class="text mb-5">
+                <p>Τα κίτρινα κουτιά του ομίλου ΕΛΤΑ υπάρχουν από το 1828 σε κάθε γωνιά της Ελλάδος παραδίδοντας το πακέτο σε κάθε γωνιά της χώρας με ταχύτητα και ασφάλεια</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="block-18 d-flex align-items-center">
+                  <div class="icon mr-4">
+                    <span class="fa fa-user-tie"></span>
+                  </div>
+                  <div class="text">
+                    <strong class="number" data-number="2921" style="color: #006CA5">0</strong>
+                    <span>υπαλληλοι</span>
+                  </div>
+                </div>
+
+                <div class="block-18 d-flex align-items-center">
+                  <div class="icon mr-4">
+                    <span class="fa fa-landmark"></span>
+                  </div>
+                  <div class="text">
+                    <strong class="number" data-number="1400" style="color: #006CA5">0</strong>
+                    <span>καταστηματα</span>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                <div class="block-18 d-flex align-items-center">
+                  <div class="icon mr-4">
+                    <span class="fa fa-truck"></span>
+                  </div>
+                  <div class="text">
+                    <strong class="number" data-number="3902" style="color: #006CA5">0</strong>
+                    <span>οχηματα</span>
+                  </div>
+                </div>
+
+                <div class="block-18 d-flex align-items-center">
+                  <div class="icon mr-4">
+                    <span class="fa fa-box"></span>
+                  </div>
+                  <div class="text">
+                    <strong class="number" data-number="5000" style="color: #006CA5">0</strong><strong style="color: #006CA5">+</strong>
+                    <span>αποστολες καθημερινα</span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+
+    <div class="container site-section element-animate">
+      <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center section-heading">
+            <h2 class=" heading" style="color: #006CA5">Επιπλέον Υπηρεσίες</h2>
+            <p>Εκτός των κλασσικών επιλογών αποστολής αλληλογραφίας, ο όμιλος ΕΛΤΑ προσφέρει μια ευρεία γκάμα επιπλέον υπηρεσιών</p>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="block-2">
+            <div class="flipper">
+              <div class="front" style="background-image: url(images/eltakourier.jpg);">
+                <div class="box">
+                  <h2>ELTA Courier</h2>
+                  <p>Ταχυμεταφορές</p>
+                </div>
+              </div>
+              <div class="back">
+                <!-- back content -->
+                  <p>Η ELTA Courier ιδρύθηκε το 2000 και δραστηριοποιείται στην ιδιαίτερα ανταγωνιστική αγορά των ταχυμεταφορών. Αποτελεί συνέχεια της υπηρεσίας ΠΟΡΤΑ-ΠΟΡΤΑ, της πρώτης υπηρεσίας courier στην Ελλάδα που άρχισε να προσφέρεται στην αγορά το 1986.</p>
+                <div class="author d-flex">
+                  <div class="image mr-3 align-self-center">
+                    <img src="images/eltakourier.png" alt="">
+                  </div>
+                  <div class="name align-self-center">ELTA Courier <span class="position">Ταχυμεταφορές</span></div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- .flip-container -->
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="block-2 ">
+            <div class="flipper">
+              <div class="front" style="background-image: url(images/elta-energy-logo.png);">
+                <div class="box">
+                  <h2>ELTA Energy</h2>
+                  <p>Πάροχος Ηλεκτρ/κής Ενέργειας</p>
+                </div>
+              </div>
+              <div class="back">
+                <!-- back content -->
+                  <p>Τα προγράμματα της “ΕΛΤΑ Ενέργεια” παρέχουν από τις πιο ανταγωνιστικές τιμές της αγοράς, ολοκληρωμένη και υψηλού επιπέδου εξυπηρέτηση μέσω του δικτύου καταστημάτων των ΕΛΤΑ και επιβράβευση της εμπρόθεσμης εξόφλησης των λογαριασμών με 10% έκπτωση στον λογαριασμό.</p>
+                <div class="author d-flex">
+                  <div class="image mr-3 align-self-center">
+                    <img src="images/elta-energy-logo.jpg" alt="">
+                  </div>
+                  <div class="name align-self-center">ELTA Energy <span class="position">Πάροχος Ηλεκτρ/κής Ενέργειας</span></div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- .flip-container -->
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="block-2">
+            <div class="flipper">
+              <div class="front" style="background-image: url(images/westernELTA.jpg);">
+                <div class="box">
+                  <h2>ELTA WU Money Transfer</h2>
+                  <p>Μεταφορά χρημάτων</p>
+                </div>
+              </div>
+              <div class="back">
+                <!-- back content -->
+                  <p>Διεθνές σύστημα ηλεκτρονικών πληρωμών εκτέλεσης εντολής αυθημερόν. Η καταβολή στο δικαιούχο διενεργείται με μετρητά. Εξυπηρετεί πληρωμές από και προς το εξωτερικό. Απευθύνεται σε όλους εσάς που επιθυμείτε να στείλετε ή να λάβετε χρήματα μέσα σε λίγα λεπτά</p>
+                <div class="author d-flex">
+                  <div class="image mr-3 align-self-center">
+                    <img src="images/westernELTA.jpg" alt="">
+                  </div>
+                  <div class="name align-self-center">ELTA WU Money Transfer <span class="position">Μεταφορά χρημάτων</span></div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- .flip-container -->
+        </div>
+      </div>
+    </div>
+    <!-- END .block-2 -->
+
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-7 text-center section-heading">
+            <h2 class=" heading" style="color: #006CA5">Τα Ελληνικά Ταχυδρομεία στα Κοινωνικά Δίκτυα</h2>
+            <p>Ενημερωθείτε για τα νέα μας στα παρακάτω Social Media</p>
+          </div>
+        </div>
+        <div class="row justify-content-center element-animate">
+            <a href="https://el-gr.facebook.com/HellenicPostELTA/" class="btn fab fa-facebook-f socIcon"></a>&emsp;
+            <a href="https://www.instagram.com/explore/tags/elta/?hl=el" class="btn fab fa-instagram socIcon"></a>&emsp;
+            <a href="https://www.youtube.com/channel/UCa0lGLRDQ4CAO2URJp1g8Uw" class="btn fab fa-youtube socIcon"></a>&emsp;
+            <a href="https://www.elta.gr/el-gr/home.aspx" class="btn fab fa-google socIcon"></a>&emsp;
+            <a href="https://twitter.com/eltacourier1" class="btn fab fa-twitter socIcon"></a>&emsp;
+            <a href="https://play.google.com/store/apps/details?id=gr.elta.eltaMobileApp&hl=el" class="btn fab fa-android socIcon"></a>&emsp;
+        </div>
+      </div>
+    </div>
+
+    <div class="py-5 block-22">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0 pr-md-5">
+            <h2 class="heading" style="color: white">Εγγραφείτε στο Newsletter</h2>
+            <p>Ενημερωθείτε πρώτοι για όλα τα νέα προϊόντα του ομίλου ΕΛΤΑ</p>
+          </div>
+          <div class="col-md-6">
+            <form name="newsletterForm" class="subscribe">
+              <div class="form-group">
+                <input type="email" class="form-control email" ng-model="inputNewsletter" placeholder="Εισάγετε το email σας" required>
+                <input type="submit" class="btn btn-primary submit" style="background-color: #006CA5" ng-click="newsletterForm.$valid &&  checkNewsletter()" value="Εγγραφή">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <h3>Hellenic Post</h3>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                <img src="images/call_service_button.gif">
+          </div>
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+              
+          </div>
+          <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <h3 class="heading">Κεντρικά γραφεία</h3>
+            <div class="block-23">
+              <ul>
+                <li><span class="icon ion-android-pin"></span><span class="text">Απελλού 1, 10188 Αθήνα </span></li>
+                <li><a><span class="icon ion-ios-telephone"></span><span class="text">+30 210 3353777</span></a></li>
+                <li><a><span class="icon ion-android-mail"></span><span class="text">service@elta-net.gr</span></a></li>
+                <li><span class="icon ion-android-time"></span><span class="text">Δευτέρα &mdash; Παρασκευή 8:00πμ - 5:00μμ</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END footer -->
+        
+    <!-- LOGIN & SIGNUP TEMPLATE -->
+    <script type="text/ng-template" id="tabDialog.tmpl.html"><md-dialog aria-label="Σύνδεση / Εγγραφή">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools" style="background-color:#006CA5;">
+                <h2 style="color: white; text-shadow: .5px .5px .5px black, .5px .5px .5px black;">Είσοδος / Εγγραφή στο σύστημα</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="ctrl.parent.cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:600px;max-height:610px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="ΕΙΣΟΔΟΣ">
+                    <md-content class="md-padding" style="padding: 40px">
+                        <form class="log-in formSi" name="loginForm"> 
+                            <h4> Πλατφόρμα ΕΛΤΑ</h4>
+                            <p><i class="fas fa-sign-in-alt"> </i>&ensp;Συνδεθείτε στο λογαριασμό σας εισάγοντας τα στοιχεία παρακάτω:</p>
+                            <div class="floating-label">
+                                <input class="inputSi" placeholder="Εισάγετε το email σας" type="email" name="email" id="email" ng-model="ctrl.parent.emailLogin" required>
+                                <label class="labelSi" for="email">Email</label>
+                                <div class="icon">
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                        <style type="text/css">.st0{fill:none;}</style>
+                                        <g transform="translate(0 -952.36)">
+                                            <path d="m17.5 977c-1.3 0-2.4 1.1-2.4 2.4v45.9c0 1.3 1.1 2.4 2.4 2.4h64.9c1.3 0 2.4-1.1 2.4-2.4v-45.9c0-1.3-1.1-2.4-2.4-2.4h-64.9zm2.4 4.8h60.2v1.2l-30.1 22-30.1-22v-1.2zm0 7l28.7 21c0.8 0.6 2 0.6 2.8 0l28.7-21v34.1h-60.2v-34.1z"/></g>
+                                            <rect class="st0" width="100" height="100"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="floating-label">
+                                <input class="inputSi" placeholder="Εισάγετε το κωδικό πρόσβασης" type="password" name="passwordLogin" id="passwordLogin" ng-model="ctrl.parent.passwordLogin" required>
+                                <label class="labelSi" for="passwordLogin">Κωδικός</label>
+                                <div class="icon">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                        <style type="text/css">
+                                            .st0{fill:none;}
+                                            .st1{fill:#010101;}
+                                        </style>
+                                        <rect class="st0" width="24" height="24"/>
+                                        <path class="st1" d="M19,21H5V9h14V21z M6,20h12V10H6V20z"/>
+                                        <path class="st1" d="M16.5,10h-1V7c0-1.9-1.6-3.5-3.5-3.5S8.5,5.1,8.5,7v3h-1V7c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5V10z"/>
+                                        <path class="st1" d="m12 16.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5zm0-2c-0.3 0-0.5 0.2-0.5 0.5s0.2 0.5 0.5 0.5 0.5-0.2 0.5-0.5-0.2-0.5-0.5-0.5z"/>
+                                    </svg>
+                                </div>
+                            </div><br>
+                            <button class="buttonSi" type="submit" ng-click="ctrl.parent.loginUser()">Είσοδος</button>
+                            <div style="display: inline;" class="box-e"><a class="custom-underline float-right" href="javascript:void(0)"><i class="fas fa-exclamation-circle"> </i> Ξεχάσατε το κωδικό πρόσβασης;</a></div>
+                            <br><br><div class="alert alert-danger" style="display:none; height: 90%;"><span></span></div>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="ΕΓΓΡΑΦΗ">
+                    <md-content class="md-padding" style="padding: 40px">
+                        <h4> <i class="fas fa-child">&ensp;</i>Νέος χρήστης;</h4>
+                        <p>Δημιουργήστε νέο λογαριασμό στη πλατφόρμα για να απολαμβάνετε τις δυνατότητες που αυτή προσφέρει χρησιμοποιώντας απλά το ηλεκτρονικό ταχυδρομείο σας!</p>
+                        <form action="" class="log-in formSi" name="signupForm" autocomplete="off">
+                            <div class="floating-label">
+                                <input class="inputSi" placeholder="Εισάγετε το email σας" type="email" name="emailSignup" id="emailSignup" autocomplete="off" ng-model="ctrl.parent.emailSignup" ng-change="ctrl.parent.checkEmail()" required>
+                                <label class="labelSi" for="email">Email</label>
+                                <div class="icon">
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                        <style type="text/css">.st0{fill:none;}</style>
+                                        <g transform="translate(0 -952.36)">
+                                            <path d="m17.5 977c-1.3 0-2.4 1.1-2.4 2.4v45.9c0 1.3 1.1 2.4 2.4 2.4h64.9c1.3 0 2.4-1.1 2.4-2.4v-45.9c0-1.3-1.1-2.4-2.4-2.4h-64.9zm2.4 4.8h60.2v1.2l-30.1 22-30.1-22v-1.2zm0 7l28.7 21c0.8 0.6 2 0.6 2.8 0l28.7-21v34.1h-60.2v-34.1z"/></g>
+                                            <rect class="st0" width="100" height="100"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span ng-hide="!ctrl.parent.exists" style="color:red; margin-left: 7%; font-size: 90%" class="fade">Έχει γίνει ήδη μια καταχώρηση με αυτό το email</span>
+                            <div class="floating-label">
+                                <input class="inputSi" placeholder="Εισάγετε κωδικό πρόσβασης" type="password" name="passwordSignup" id="passwordSignup" autocomplete="off" ng-model="ctrl.parent.passwordSignup" ng-pattern="ctrl.parent.re" required>
+                                <label class="labelSi" for="passwordSignup">Κωδικός</label>
+                                <div class="icon">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                        <style type="text/css">
+                                            .st0{fill:none;}
+                                            .st1{fill:#010101;}
+                                        </style>
+                                        <rect class="st0" width="24" height="24"/>
+                                        <path class="st1" d="M19,21H5V9h14V21z M6,20h12V10H6V20z"/>
+                                        <path class="st1" d="M16.5,10h-1V7c0-1.9-1.6-3.5-3.5-3.5S8.5,5.1,8.5,7v3h-1V7c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5V10z"/>
+                                        <path class="st1" d="m12 16.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5zm0-2c-0.3 0-0.5 0.2-0.5 0.5s0.2 0.5 0.5 0.5 0.5-0.2 0.5-0.5-0.2-0.5-0.5-0.5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span ng-hide="ctrl.parent.passwordSignup!==undefined" style="color:red; margin-left: 7%; font-size: 90%" class="fade">Ο Κωδικός Πρόσβασης πρέπει να είναι τουλάχιστον 6 χαρακτήρες</span>
+                            <div class="floating-label">
+                                <input class="inputSi" placeholder="Επιβεβαιώστε το κωδικό πρόσβασης" type="password" name="passwordSignupRE" id="passwordSignupRE" autocomplete="off" ng-model="ctrl.parent.passwordSignupRE" required>
+                                <label class="labelSi" for="passwordSignupRE">Επιβεβαίωση κωδικού</label>
+                                <div class="icon">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                                        <style type="text/css">
+                                            .st0{fill:none;}
+                                            .st1{fill:#010101;}
+                                        </style>
+                                        <rect class="st0" width="24" height="24"/>
+                                        <path class="st1" d="M19,21H5V9h14V21z M6,20h12V10H6V20z"/>
+                                        <path class="st1" d="M16.5,10h-1V7c0-1.9-1.6-3.5-3.5-3.5S8.5,5.1,8.5,7v3h-1V7c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5V10z"/>
+                                        <path class="st1" d="m12 16.5c-0.8 0-1.5-0.7-1.5-1.5s0.7-1.5 1.5-1.5 1.5 0.7 1.5 1.5-0.7 1.5-1.5 1.5zm0-2c-0.3 0-0.5 0.2-0.5 0.5s0.2 0.5 0.5 0.5 0.5-0.2 0.5-0.5-0.2-0.5-0.5-0.5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span ng-hide="(ctrl.parent.passwordSignup == ctrl.parent.passwordSignupRE)  ||  ctrl.parent.passwordSignupRE==undefined " style="color:red; margin-left: 7%; font-size: 90%" class="fade">Οι κωδικοί δεν ταιριάζουν<br></span>
+                            <input type="checkbox" style="margin-left: 3%;" id="checkBox" required><label for="checkBox">&nbsp; Έχω διαβάσει τους <a href="terms.html" target="_blank" style="color:#006CA5">όρους χρήσης και προϋποθέσεις</a>.</label><br><br>
+                            <button class="buttonSi" type="submit" ng-disabled="!(ctrl.parent.passwordSignup == ctrl.parent.passwordSignupRE) || ctrl.parent.passwordSignup==undefined || ctrl.parent.exists || ctrl.parent.emailSignup==undefined" ng-click="ctrl.parent.signupUser()">Εγγραφή</button>
+                            <span ng-hide="ctrl.parent.passwordSignup!== undefined  &&  ctrl.parent.passwordSignupRE!==undefined && ctrl.parent.emailSignup!==undefined" class="float-right fade" style="color:#006CA5; display: inline;"><i class="fas fa-info-circle"> </i> Συμπληρώστε όλα τα πεδία!</span>
+                            <img height="50" width="50" ng-hide="!ctrl.parent.loading_spinner" class="rounded mx-auto d-block" src="images/loading.gif">
+                            <p style="text-align: center; font-weight: bold; color: #006CA5" class="fade" ng-hide="!ctrl.parent.accountCreated"><br>Ο λογαριασμός σας δημιουργήθηκε με επιτυχία! Μπορείτε να ξεκινήσετε να χρησιμοποιείτε τις υπηρεσίες μας.</p>
+                        </form>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="ctrl.parent.cancel()" style="margin-right:20px; font-weight: bold" >
+        ΚΛΕΙΣΙΜΟ
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script>
+        
+        
+        <!-- NUMBER WAITING TEMPLATE -->
+        <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+            <form ng-cloak>
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color:#006CA5;">
+                        <h2 style="color: white; text-shadow: .5px .5px .5px black, .5px .5px .5px black;">ΕΛΤΑ: {{ctrl2.parent.getNumber.county.city}}</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="ctrl2.parent.cancel()"><md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon></md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="padding: 10px; max-width:650px;">
+                    <div class="md-dialog-content">
+                        <div class="container-fluid">
+                            <div class="row" style="border-bottom: .5px solid #006CA5">
+                                <div class="col-sm text-center">
+                                    <span style="font-weight: bold">ο αριθμός μου</span>
+                                    <h1 style="color:#006CA5">{{ctrl2.parent.information.arithmosPelati}}</h1>
+                                    <span style="font-weight: bold">εξυπηρετείται το</span>
+                                    <h1 style="color:#006CA5">{{ctrl2.parent.information.numberServiced}}</h1>
+                                </div>
+                                <div class="col-sm align-self-center" >
+                                    <p>
+                                        <span style="text-decoration: underline;font-weight: bold">Στοιχεία καταστήματος :</span><br>
+                                        <span style="font-weight: bold">Διεύθυνση: </span>&ensp; <i class="fas fa-map-marked-alt"> </i>&ensp; {{ctrl2.parent.information.address}}<br>
+                                        <span style="font-weight: bold">Τηλέφωνο: </span>&ensp; <i class="fas fa-phone"> </i>&ensp;  {{ctrl2.parent.information.phone}}<br>
+                                        <a href="https://maps.google.com/?q={{ctrl2.parent.information.X}},{{ctrl2.parent.information.Y}}" target="_blank"><i class="fas fa-map-marker-alt">&ensp;</i>Δείτε το κατάστημα στο χάρτη</a>
+                                    </p>
+                                </div><br>
+                            </div><br>
+                            <div class="row" style="border-bottom: .5px solid #006CA5" ng-show="ctrl2.parent.anamoni">
+                                <div class="col-sm">
+                                    <i class="fas fa-male" ng-repeat="x in [].constructor(ctrl2.parent.information.posoiPerimenoun) track by $index" style="font-size: 190%; color:#006CA5;margin-left: 4px"> </i>
+                                    <i class="fas fa-male" style="font-size: 190%; color:#2ddb2a"> </i>
+                                    <i class="fas fa-male" ng-repeat="x in [].constructor(ctrl2.parent.information.perimenounPiswApoPelati) track by $index" style="font-size: 190%; color:#d4d4d4;margin-left: 4px"> </i>
+                                </div>
+                                <div class="col-sm" >
+                                    <h2 style="color:#006CA5; display: inline">{{ctrl2.parent.information.posoiPerimenoun}}</h2><span style="display: inline">&nbsp; άτομα μπροστά στην ουρά</span><br>
+                                    <h2 style="color:#006CA5; display: inline">{{ctrl2.parent.information.posiKathusterisi}}'</h2><span style="display: inline">&nbsp; προβλεπόμενη αναμονή</span><p></p> 
+                                </div><br>
+                            </div><br>
+                            <div class="row" ng-show="ctrl2.parent.anamoni">
+                                <div class="col-sm">
+                                    <i class="fas fa-chair" ng-repeat="x in [].constructor(ctrl2.parent.information.capacity) track by $index" style="font-size: 150%; color:#006CA5;margin-left: 4px"> </i>
+                                    <i class="fas fa-chair" ng-repeat="x in [].constructor(ctrl2.parent.information.posaAtomaEntosTetartou) track by $index" style="font-size: 150%; color:#d4d4d4;margin-left: 4px"> </i><br><br>
+                                    <h2 style="color:#006CA5; display: inline">{{ctrl2.parent.pithanotitaKathismatos}} %</h2><span style="display: inline">&ensp;πιθανότητα να βρείτε κενή θέση</span>
+                                </div><br>
+                                <div class="col-sm" ><br>
+                                    <i class="fas fa-user-tie" ng-repeat="x in [].constructor(ctrl2.parent.information.posoiOnline) track by $index" style="font-size: 180%; color:#006CA5;margin-left: 4px"> </i>
+                                    <i class="fas fa-user-tie" ng-repeat="x in [].constructor(ctrl2.parent.information.counters - ctrl2.parent.information.posoiOnline) track by $index" style="font-size: 180%; color:#d4d4d4;margin-left: 4px"> </i><br><br>
+                                    <h2 style="color:#006CA5; display: inline">{{ctrl2.parent.information.posoiOnline}} / {{ctrl2.parent.information.counters}}</h2><span style="display: inline">&ensp;υπαλλήλους εξυπηρετούν</span>
+                                </div>
+                            </div>
+                            <div class="container text-center" style="width: 100%" ng-show="!ctrl2.parent.anamoniEksipiretiste && !ctrl2.parent.anamoni">
+                                <h2 style="color:#006CA5">Είστε ο επόμενος αριθμός προς εξυπηρέτηση!</h2><br><br>
+                            </div>
+                            <div class="container text-center" style="width: 100%" ng-show="ctrl2.parent.anamoniEksipiretiste && !ctrl2.parent.anamoni">
+                                <h2 style="color:#006CA5">Ο αριθμός σας εξυπηρετείται!</h2><br><br>
+                            </div>
+                            <div class="container text-center" style="width: 100%">
+                                <img src="images/loader5.gif" width="100px" height="100px" class="text-center"><br>
+                                <span style="color:#006CA5">Η σελίδα ανανεώνεται αυτόματα</span><br>
+                                <button type="button" class="btn btn-danger" style="font-size: 85%; color:#fff" ng-click="ctrl2.parent.destroyNumber()"><i class="fas fa-trash"> </i> Απόρριψη αριθμού</button>
+                            </div>
+                        </div>
+                    </div>
+                </md-dialog-content>
+            </form>
+            </md-dialog>
+        </script>
+        
+      </div>
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-route.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.js"></script>
+    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script> -->
+    <!-- <script src="https://gitcdn.xyz/cdn/angular/bower-material/v1.1.20/angular-material.js"></script> -->
+      
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.9/angular-material.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+      
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/mainCode.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+      
+    <script src="js/main.js"></script>
+  </body>
+</html>
